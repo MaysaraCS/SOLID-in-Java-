@@ -13,4 +13,14 @@ public class General extends GameUnit{
 	public String toString() {
 		return "General "+state+" @ "+getPosition();
 	}
+
+    @Override
+    public GameUnit clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException("Generals Are Unique");
+    }
+
+    @Override
+    protected void resetPosition(){
+        throw new UnsupportedOperationException("Resetting position is not supported for General");
+    }
 }
