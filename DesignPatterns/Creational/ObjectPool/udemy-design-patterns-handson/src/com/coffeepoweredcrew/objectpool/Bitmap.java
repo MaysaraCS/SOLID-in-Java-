@@ -25,5 +25,9 @@ public class Bitmap implements Image {
     public void setLocation(Point2D location) {
         this.location = location;
     }
-
+    @Override
+    public void reset() {
+        this.location = null;
+        System.out.println("Bitmap "+name+" is reset.");
+    }
 }
