@@ -9,5 +9,18 @@ package com.coffeepoweredcrew.singleton;
  */
 public class LazyRegistryWithDCL {
 
- 
+    private LazyRegistryWithDCL() {}
+    private static LazyRegistryWithDCL INSTANCE ;
+
+    // volatile is used for not storing the value in the CPU cache.
+    public static volatile LazyRegistryWithDCL getInstance() {
+        if(INSTANCE == null) {
+            synchronized (LazyRegistryWithDCL.class) {
+                if(INSTANCE == null) {
+                    INSTANCE = new LazyRegistryWithDCL();
+                }
+            }
+        }
+        return INSTANCE;
+    }
 }
